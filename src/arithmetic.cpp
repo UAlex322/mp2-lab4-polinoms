@@ -1,4 +1,4 @@
-// реализация функций и классов для вычисления арифметических выражений
+// СЂРµР°Р»РёР·Р°С†РёСЏ С„СѓРЅРєС†РёР№ Рё РєР»Р°СЃСЃРѕРІ РґР»СЏ РІС‹С‡РёСЃР»РµРЅРёСЏ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРёС… РІС‹СЂР°Р¶РµРЅРёР№
 
 #include <map>
 #include <vector>
@@ -25,9 +25,9 @@ Expression::Expression(const string &expr, map<string, Polinomial> &names) {
 
 vector<Expression::Token> Expression::parse(const string &expr) {
 	vector<Token> tokens;
-	size_t first_digit_pos = -1;	// позиция первой цифры секущего считываемого числа; -1, если в данный момент не считывается число
-	size_t first_letter_pos = -1;	// позиция первой буквы текущей считываемой переменной; -1, если в данный момент не считывается переменная
-	bool was_dot = false;			// была ли считана точка действительного числа
+	size_t first_digit_pos = -1;	// РїРѕР·РёС†РёСЏ РїРµСЂРІРѕР№ С†РёС„СЂС‹ СЃРµРєСѓС‰РµРіРѕ СЃС‡РёС‚С‹РІР°РµРјРѕРіРѕ С‡РёСЃР»Р°; -1, РµСЃР»Рё РІ РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РЅРµ СЃС‡РёС‚С‹РІР°РµС‚СЃСЏ С‡РёСЃР»Рѕ
+	size_t first_letter_pos = -1;	// РїРѕР·РёС†РёСЏ РїРµСЂРІРѕР№ Р±СѓРєРІС‹ С‚РµРєСѓС‰РµР№ СЃС‡РёС‚С‹РІР°РµРјРѕР№ РїРµСЂРµРјРµРЅРЅРѕР№; -1, РµСЃР»Рё РІ РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РЅРµ СЃС‡РёС‚С‹РІР°РµС‚СЃСЏ РїРµСЂРµРјРµРЅРЅР°СЏ
+	bool was_dot = false;			// Р±С‹Р»Р° Р»Рё СЃС‡РёС‚Р°РЅР° С‚РѕС‡РєР° РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕРіРѕ С‡РёСЃР»Р°
 
 	for (size_t i = 0; i < expr.size(); ++i) {
 		if (expr[i] == ' ' && first_digit_pos == -1 && first_letter_pos == -1) continue;
@@ -84,7 +84,7 @@ vector<Expression::Token> Expression::parse(const string &expr) {
 }
 
 string Expression::check(map<string, Polinomial> &names) {
-	token_type last_state = OPEN_BR; // тип последнего считанного токена
+	token_type last_state = OPEN_BR; // С‚РёРї РїРѕСЃР»РµРґРЅРµРіРѕ СЃС‡РёС‚Р°РЅРЅРѕРіРѕ С‚РѕРєРµРЅР°
 	int correct_brackets = 0;
 	string errors;
 
@@ -178,7 +178,7 @@ void Expression::make_postfix_notation() {
 }
 
 Polinomial Expression::compute(map<string, Polinomial> values) {
-	vector<Token> copy_tokens = _tokens; // копия набора лексем для вычисления, чтобы не портить исходные данные
+	vector<Token> copy_tokens = _tokens; // РєРѕРїРёСЏ РЅР°Р±РѕСЂР° Р»РµРєСЃРµРј РґР»СЏ РІС‹С‡РёСЃР»РµРЅРёСЏ, С‡С‚РѕР±С‹ РЅРµ РїРѕСЂС‚РёС‚СЊ РёСЃС…РѕРґРЅС‹Рµ РґР°РЅРЅС‹Рµ
 	stack<Polinomial> operands;
 	Polinomial result, op1, op2;
 

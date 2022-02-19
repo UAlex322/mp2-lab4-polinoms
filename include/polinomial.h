@@ -7,7 +7,7 @@
 class Polinomial {
 private:
 
-	// Одночлен (моном)
+	// РћРґРЅРѕС‡Р»РµРЅ (РјРѕРЅРѕРј)
 	struct Monomial {
 		double value;
 		size_t power;
@@ -17,7 +17,7 @@ private:
 		Monomial operator*(const Monomial &mon) const {
 			Monomial result = *this;
 
-			// Степень при некоторой переменной больше 9
+			// РЎС‚РµРїРµРЅСЊ РїСЂРё РЅРµРєРѕС‚РѕСЂРѕР№ РїРµСЂРµРјРµРЅРЅРѕР№ Р±РѕР»СЊС€Рµ 9
 			if (power/100 + mon.power/100 > 9 || power/10%10 + mon.power/10%10 > 9 || power%10 + mon.power%10 > 9)
 				throw std::string("error: the power of monomial is too big");
 			result.power = power + mon.power;
@@ -26,26 +26,26 @@ private:
 			return result;
 		}
 
-		// Для прямого сравнения
+		// Р”Р»СЏ РїСЂСЏРјРѕРіРѕ СЃСЂР°РІРЅРµРЅРёСЏ
 		bool operator==(const Monomial &mon) const {
 			return abs(value-mon.value)<std::numeric_limits<double>::epsilon() && power == mon.power;
 		}
 		bool operator!=(const Monomial &mon) const {
 			return abs(value-mon.value)>std::numeric_limits<double>::epsilon() || power != mon.power;
 		}
-		// Для задания порядка при сортировке
+		// Р”Р»СЏ Р·Р°РґР°РЅРёСЏ РїРѕСЂСЏРґРєР° РїСЂРё СЃРѕСЂС‚РёСЂРѕРІРєРµ
 		bool operator<=(const Monomial &mon) const {
 			return power <= mon.power;
 		}
 	};
 
-	void reduction(List<Monomial> &list); // приведение подобных слагаемых в многочлене с упорядоченными слагаемыми
-	void parse(const std::string &s); // парсинг строки с многочленом
+	void reduction(List<Monomial> &list); // РїСЂРёРІРµРґРµРЅРёРµ РїРѕРґРѕР±РЅС‹С… СЃР»Р°РіР°РµРјС‹С… РІ РјРЅРѕРіРѕС‡Р»РµРЅРµ СЃ СѓРїРѕСЂСЏРґРѕС‡РµРЅРЅС‹РјРё СЃР»Р°РіР°РµРјС‹РјРё
+	void parse(const std::string &s); // РїР°СЂСЃРёРЅРі СЃС‚СЂРѕРєРё СЃ РјРЅРѕРіРѕС‡Р»РµРЅРѕРј
 	List<Monomial> list;
 
 public:
 
-	// Вспомогательная структура для создания мономов через конкретные значения, а не парсинг строки
+	// Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅР°СЏ СЃС‚СЂСѓРєС‚СѓСЂР° РґР»СЏ СЃРѕР·РґР°РЅРёСЏ РјРѕРЅРѕРјРѕРІ С‡РµСЂРµР· РєРѕРЅРєСЂРµС‚РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ, Р° РЅРµ РїР°СЂСЃРёРЅРі СЃС‚СЂРѕРєРё
 	struct Mono {
 		double value;
 		size_t pow1, pow2, pow3;

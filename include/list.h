@@ -3,12 +3,12 @@
 #include <initializer_list>
 #include <iostream>
 
-// Односвязный список
+// РћРґРЅРѕСЃРІСЏР·РЅС‹Р№ СЃРїРёСЃРѕРє
 
 template <typename Type>
 class List {
 private:
-	// Узел списка
+	// РЈР·РµР» СЃРїРёСЃРєР°
 	struct Node {
 		Node *next;
 		Type data;
@@ -17,11 +17,11 @@ private:
 		Node(const Type &value = Type()): data(value) {}
 	};
 
-	void merge_general(Node *&first, Node *second); // обобщённая процедура слияния (принимает узлы списков, результат слияния лежит по первому указателю)
-	void mergesort(Node *&first); // внутренняя функция сортировки слиянием
+	void merge_general(Node *&first, Node *second); // РѕР±РѕР±С‰С‘РЅРЅР°СЏ РїСЂРѕС†РµРґСѓСЂР° СЃР»РёСЏРЅРёСЏ (РїСЂРёРЅРёРјР°РµС‚ СѓР·Р»С‹ СЃРїРёСЃРєРѕРІ, СЂРµР·СѓР»СЊС‚Р°С‚ СЃР»РёСЏРЅРёСЏ Р»РµР¶РёС‚ РїРѕ РїРµСЂРІРѕРјСѓ СѓРєР°Р·Р°С‚РµР»СЋ)
+	void mergesort(Node *&first); // РІРЅСѓС‚СЂРµРЅРЅСЏСЏ С„СѓРЅРєС†РёСЏ СЃРѕСЂС‚РёСЂРѕРІРєРё СЃР»РёСЏРЅРёРµРј
 
-	Node *head = new Node(); // голова списка
-	size_t _size; // текущее количество узлов в списке без учёта головы
+	Node *head = new Node(); // РіРѕР»РѕРІР° СЃРїРёСЃРєР°
+	size_t _size; // С‚РµРєСѓС‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СѓР·Р»РѕРІ РІ СЃРїРёСЃРєРµ Р±РµР· СѓС‡С‘С‚Р° РіРѕР»РѕРІС‹
 
 public:
 
@@ -30,7 +30,7 @@ public:
 	List(List &&move) noexcept;
 	List(const std::initializer_list<Type> &list);
 	template <typename Iterator>
-	List(Iterator first, Iterator second); // range-конструктор
+	List(Iterator first, Iterator second); // range-РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	~List();
 	List& operator=(const List &copy);
 	List& operator=(List &&move) noexcept;
@@ -41,13 +41,13 @@ public:
 
 	void swap(List &other);
 	void reverse();
-	void merge(List other); // слияние списков
+	void merge(List other); // СЃР»РёСЏРЅРёРµ СЃРїРёСЃРєРѕРІ
 	void sort();
 
 	bool operator==(const List &other) const;
 	bool operator!=(const List &other) const;
 
-	// Итератор списка
+	// РС‚РµСЂР°С‚РѕСЂ СЃРїРёСЃРєР°
 	class iterator {
 	public:
 		friend class List;
@@ -69,7 +69,7 @@ public:
 		Node *ptr;
 	};
 
-	// Константный итератор списка
+	// РљРѕРЅСЃС‚Р°РЅС‚РЅС‹Р№ РёС‚РµСЂР°С‚РѕСЂ СЃРїРёСЃРєР°
 	class const_iterator {
 	public:
 		friend class List;
@@ -91,17 +91,17 @@ public:
 		Node *ptr;
 	};
 
-	iterator before_begin() {return iterator(head);} // итератор на голову списка
-	const_iterator before_begin() const {return const_iterator(head);} // константный итератор на голову списка
-	iterator begin() {return iterator(head->next);} // итератор на первый элемент списка
-	const_iterator begin() const {return const_iterator(head->next);} // константный итератор на первый элемент списка
-	iterator end() {return iterator(nullptr);} // итератор на конец списка
-	const_iterator end() const {return const_iterator(nullptr);} // итератор на конец списка
+	iterator before_begin() {return iterator(head);} // РёС‚РµСЂР°С‚РѕСЂ РЅР° РіРѕР»РѕРІСѓ СЃРїРёСЃРєР°
+	const_iterator before_begin() const {return const_iterator(head);} // РєРѕРЅСЃС‚Р°РЅС‚РЅС‹Р№ РёС‚РµСЂР°С‚РѕСЂ РЅР° РіРѕР»РѕРІСѓ СЃРїРёСЃРєР°
+	iterator begin() {return iterator(head->next);} // РёС‚РµСЂР°С‚РѕСЂ РЅР° РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР°
+	const_iterator begin() const {return const_iterator(head->next);} // РєРѕРЅСЃС‚Р°РЅС‚РЅС‹Р№ РёС‚РµСЂР°С‚РѕСЂ РЅР° РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР°
+	iterator end() {return iterator(nullptr);} // РёС‚РµСЂР°С‚РѕСЂ РЅР° РєРѕРЅРµС† СЃРїРёСЃРєР°
+	const_iterator end() const {return const_iterator(nullptr);} // РёС‚РµСЂР°С‚РѕСЂ РЅР° РєРѕРЅРµС† СЃРїРёСЃРєР°
 	const_iterator cbefore_begin() const {return const_iterator(head);}
 	const_iterator cbegin() const {return const_iterator(head->next);}
 	const_iterator cend() const {return const_iterator(nullptr);}
 
-	iterator insert_after(const iterator &pos, const Type &value); // вставка после элемента, на который указывает итератор
+	iterator insert_after(const iterator &pos, const Type &value); // РІСЃС‚Р°РІРєР° РїРѕСЃР»Рµ СЌР»РµРјРµРЅС‚Р°, РЅР° РєРѕС‚РѕСЂС‹Р№ СѓРєР°Р·С‹РІР°РµС‚ РёС‚РµСЂР°С‚РѕСЂ
 	template <typename... Args>
 	iterator emplace_after(const iterator &pos, Args&&... args); // 
 	iterator erase_after(const iterator &pos);
@@ -158,7 +158,7 @@ List<Type>::List(const std::initializer_list<Type> &list): _size(list.size()) {
 
 template <typename Type>
 template <typename Iterator>
-List<Type>::List(Iterator first, Iterator second) { // промежуток [first; last)
+List<Type>::List(Iterator first, Iterator second) { // РїСЂРѕРјРµР¶СѓС‚РѕРє [first; last)
 	Node *curr = head;
 	
 	while (first != second) {
@@ -181,7 +181,7 @@ List<Type>& List<Type>::operator=(const List &copy) {
 		copy_curr_ptr = copy_curr_ptr->next;
 	}
 
-	// Если закончился исходный список, а у нового больший размер
+	// Р•СЃР»Рё Р·Р°РєРѕРЅС‡РёР»СЃСЏ РёСЃС…РѕРґРЅС‹Р№ СЃРїРёСЃРѕРє, Р° Сѓ РЅРѕРІРѕРіРѕ Р±РѕР»СЊС€РёР№ СЂР°Р·РјРµСЂ
 	if (curr_ptr->next == nullptr) {
 		while (copy_curr_ptr->next != nullptr) {
 			curr_ptr->next = new Node(*(copy_curr_ptr->next));
@@ -190,7 +190,7 @@ List<Type>& List<Type>::operator=(const List &copy) {
 		}
 		curr_ptr->next = nullptr;
 	}
-	// Новый список кончился, а исходного больший размер
+	// РќРѕРІС‹Р№ СЃРїРёСЃРѕРє РєРѕРЅС‡РёР»СЃСЏ, Р° РёСЃС…РѕРґРЅРѕРіРѕ Р±РѕР»СЊС€РёР№ СЂР°Р·РјРµСЂ
 	else if (copy_curr_ptr->next == nullptr) {
 		Node *end_ptr = curr_ptr, *next_ptr = curr_ptr;
 
@@ -330,7 +330,7 @@ void List<Type>::reverse() {
 }
 
 
-// Обобщённая процедура слияния (принимает узлы списков, результат слияния лежит по первому указателю)
+// РћР±РѕР±С‰С‘РЅРЅР°СЏ РїСЂРѕС†РµРґСѓСЂР° СЃР»РёСЏРЅРёСЏ (РїСЂРёРЅРёРјР°РµС‚ СѓР·Р»С‹ СЃРїРёСЃРєРѕРІ, СЂРµР·СѓР»СЊС‚Р°С‚ СЃР»РёСЏРЅРёСЏ Р»РµР¶РёС‚ РїРѕ РїРµСЂРІРѕРјСѓ СѓРєР°Р·Р°С‚РµР»СЋ)
 template<typename Type>
 void List<Type>::merge_general(Node *&first, Node *second) {
 	Node *merged_begin = new Node(), *curr_merged = merged_begin, *curr1 = first, *curr2 = second;
@@ -366,7 +366,7 @@ void List<Type>::merge_general(Node *&first, Node *second) {
 	first = merged_begin->next;
 }
 
-// Слияние двух отсортированных списков
+// РЎР»РёСЏРЅРёРµ РґРІСѓС… РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹С… СЃРїРёСЃРєРѕРІ
 template<typename Type>
 void List<Type>::merge(List other) {
 	_size += other._size;
@@ -380,7 +380,7 @@ void List<Type>::mergesort(Node *&first) {
 	if (first == nullptr || first->next == nullptr) return;
 
 	Node *mid = first, *fast = first->next, *second;
-	// Поиск середины
+	// РџРѕРёСЃРє СЃРµСЂРµРґРёРЅС‹
 	while (fast->next != nullptr) {
 		mid = mid->next;
 		fast = fast->next;
