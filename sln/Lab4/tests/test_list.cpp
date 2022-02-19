@@ -32,8 +32,8 @@ TEST(List, can_create_via_range_constructor) {
 	ASSERT_NO_THROW(List<int> list(vec.begin(), vec.end()));
 }
 
-// Перед проверкой корректности конструкторов и операторов присваивания нужно проверить
-// корректность итераторов, чтобы иметь доступ к элементам списка, а также метод, выдающий размер списка
+// РџРµСЂРµРґ РїСЂРѕРІРµСЂРєРѕР№ РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂРѕРІ Рё РѕРїРµСЂР°С‚РѕСЂРѕРІ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ РЅСѓР¶РЅРѕ РїСЂРѕРІРµСЂРёС‚СЊ
+// РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ РёС‚РµСЂР°С‚РѕСЂРѕРІ, С‡С‚РѕР±С‹ РёРјРµС‚СЊ РґРѕСЃС‚СѓРї Рє СЌР»РµРјРµРЅС‚Р°Рј СЃРїРёСЃРєР°, Р° С‚Р°РєР¶Рµ РјРµС‚РѕРґ, РІС‹РґР°СЋС‰РёР№ СЂР°Р·РјРµСЂ СЃРїРёСЃРєР°
 TEST(List, size_method_is_correct) {
 	List<int> list1{1,2,3}, list2, list3(42);
 
@@ -128,7 +128,7 @@ TEST(List, const_iterator_comparing_is_correct) {
 	EXPECT_EQ(it2 != it3, true);
 }
 
-// Корректность конструкторов и операторов присваивания
+// РљРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂРѕРІ Рё РѕРїРµСЂР°С‚РѕСЂРѕРІ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 TEST(List, initializer_list_constructor_is_correct) {
 	List<int> list{1,3,6,10,15,21,28};
 	vector<int> vec{1,3,6,10,15,21,28};
@@ -140,9 +140,9 @@ TEST(List, initializer_list_constructor_is_correct) {
 	}
 }
 
-// Корректность конструкторов и операторов присваивания
+// РљРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂРѕРІ Рё РѕРїРµСЂР°С‚РѕСЂРѕРІ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 
-// "Генератор случайных векторов"
+// "Р“РµРЅРµСЂР°С‚РѕСЂ СЃР»СѓС‡Р°Р№РЅС‹С… РІРµРєС‚РѕСЂРѕРІ"
 vector<int> random_int_vector() {
 	random_device rd;
 	mt19937 gen(rd());
@@ -157,7 +157,7 @@ vector<int> random_int_vector() {
 }
 
 TEST(List, range_constructor_is_correct) {
-	// Рандомные тесты
+	// Р Р°РЅРґРѕРјРЅС‹Рµ С‚РµСЃС‚С‹
 	for (size_t i = 0; i < 10; ++i) {
 		vector<int> vec = random_int_vector();
 
@@ -172,7 +172,7 @@ TEST(List, range_constructor_is_correct) {
 }
 
 TEST(List, copy_constructor_is_correct) {
-	// Рандомные тесты
+	// Р Р°РЅРґРѕРјРЅС‹Рµ С‚РµСЃС‚С‹
 	for (size_t i = 0; i < 10; ++i) {
 		vector<int> vec = random_int_vector();
 
@@ -188,7 +188,7 @@ TEST(List, copy_constructor_is_correct) {
 }
 
 TEST(List, move_constructor_is_correct) {
-	// Рандомные тесты
+	// Р Р°РЅРґРѕРјРЅС‹Рµ С‚РµСЃС‚С‹
 	for (size_t i = 0; i < 10; ++i) {
 		vector<int> vec = random_int_vector();
 
@@ -204,7 +204,7 @@ TEST(List, move_constructor_is_correct) {
 }
 
 TEST(List, copy_assignment_is_correct) {
-	// Рандомные тесты
+	// Р Р°РЅРґРѕРјРЅС‹Рµ С‚РµСЃС‚С‹
 	for (size_t i = 0; i < 10; ++i) {
 		vector<int> vec = random_int_vector();
 
@@ -220,7 +220,7 @@ TEST(List, copy_assignment_is_correct) {
 }
 
 TEST(List, move_assignment_is_correct) {
-	// Рандомные тесты
+	// Р Р°РЅРґРѕРјРЅС‹Рµ С‚РµСЃС‚С‹
 	for (size_t i = 0; i < 10; ++i) {
 		vector<int> vec = random_int_vector();
 
@@ -297,13 +297,13 @@ TEST(List, merge_is_correct) {
 }
 
 TEST(List, sort_is_correct) {
-	// Конкретный тест
+	// РљРѕРЅРєСЂРµС‚РЅС‹Р№ С‚РµСЃС‚
 	List<int> list{6,2,5,1,8,4,7,3}, list_sort{1,2,3,4,5,6,7,8};
 
 	ASSERT_NO_THROW(list.sort());
 	EXPECT_EQ(list, list_sort);
 
-	// Рандомные тесты
+	// Р Р°РЅРґРѕРјРЅС‹Рµ С‚РµСЃС‚С‹
 	for (size_t i = 0; i < 10; ++i) {
 		vector<int> vec = random_int_vector();
 		List<int> list(vec.begin(), vec.end());
@@ -320,9 +320,9 @@ TEST(List, sort_is_correct) {
 
 TEST(List, insert_after_is_correct) {
 	List<int> list1{1,2,3,4}, list2{}, list3{1,0};
-	auto it1 = find(list1.begin(), list1.end(), 2), // в середине списка
-		it2 = list2.before_begin(), // в начале списка
-		it3 = find(list3.begin(), list3.end(), 0); // в конце списка
+	auto it1 = find(list1.begin(), list1.end(), 2), // РІ СЃРµСЂРµРґРёРЅРµ СЃРїРёСЃРєР°
+		it2 = list2.before_begin(), // РІ РЅР°С‡Р°Р»Рµ СЃРїРёСЃРєР°
+		it3 = find(list3.begin(), list3.end(), 0); // РІ РєРѕРЅС†Рµ СЃРїРёСЃРєР°
 
 	ASSERT_NO_THROW(it1 = list1.insert_after(it1, 314159));
 	ASSERT_NO_THROW(it2 = list2.insert_after(it2, 17));
@@ -335,9 +335,9 @@ TEST(List, insert_after_is_correct) {
 
 TEST(List, emplace_after_is_correct) {
 	List<pair<int,int>> list1{{1,1},{2,2},{3,3},{4,4}}, list2{}, list3{{1,1},{0,0}};
-	auto it1 = find(list1.begin(), list1.end(), pair<int,int>{2,2}), // в середине списка
-		it2 = list2.before_begin(), // в начале списка
-		it3 = find(list3.begin(), list3.end(), pair<int,int>{0,0}); // в конце списка
+	auto it1 = find(list1.begin(), list1.end(), pair<int,int>{2,2}), // РІ СЃРµСЂРµРґРёРЅРµ СЃРїРёСЃРєР°
+		it2 = list2.before_begin(), // РІ РЅР°С‡Р°Р»Рµ СЃРїРёСЃРєР°
+		it3 = find(list3.begin(), list3.end(), pair<int,int>{0,0}); // РІ РєРѕРЅС†Рµ СЃРїРёСЃРєР°
 
 	ASSERT_NO_THROW(it1 = list1.emplace_after(it1,22,7));
 	ASSERT_NO_THROW(it2 = list2.emplace_after(it2,223,71));
@@ -351,8 +351,8 @@ TEST(List, emplace_after_is_correct) {
 
 TEST(List, erase_after_is_correct) {
 	List<int> list1{1,2,3,4}, list2{1};
-	auto it1 = find(list1.begin(), list1.end(), 2), // в середине списка
-		it2 = list2.before_begin(); // в начале списка
+	auto it1 = find(list1.begin(), list1.end(), 2), // РІ СЃРµСЂРµРґРёРЅРµ СЃРїРёСЃРєР°
+		it2 = list2.before_begin(); // РІ РЅР°С‡Р°Р»Рµ СЃРїРёСЃРєР°
 
 	ASSERT_NO_THROW(it1 = list1.erase_after(it1));
 	ASSERT_NO_THROW(it2 = list2.erase_after(it2));
@@ -378,7 +378,7 @@ TEST(List, emplace_front_is_correct) {
 }
 
 TEST(List, pop_front_is_correct) {
-	// Рандомные тесты
+	// Р Р°РЅРґРѕРјРЅС‹Рµ С‚РµСЃС‚С‹
 	for (size_t i = 0; i < 10; ++i) {
 		vector<int> vec = random_int_vector();
 		random_device rd;
