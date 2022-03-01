@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sample", "NewLab4\NewLab4.vcxproj", "{40311A25-9226-469D-AF0C-07F039E65317}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0BF9ABE0-0E00-43F3-AACC-DF02F64EE38E} = {0BF9ABE0-0E00-43F3-AACC-DF02F64EE38E}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gtest", "gtest\gtest.vcxproj", "{82881566-39EE-4FF3-9937-180F121BBCEB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "polinomial", "polinomial\polinomial.vcxproj", "{0BF9ABE0-0E00-43F3-AACC-DF02F64EE38E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tests", "tests\tests.vcxproj", "{860F0ED6-F30C-4765-8301-E04B30097654}"
+	ProjectSection(ProjectDependencies) = postProject
+		{82881566-39EE-4FF3-9937-180F121BBCEB} = {82881566-39EE-4FF3-9937-180F121BBCEB}
+		{0BF9ABE0-0E00-43F3-AACC-DF02F64EE38E} = {0BF9ABE0-0E00-43F3-AACC-DF02F64EE38E}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40311A25-9226-469D-AF0C-07F039E65317}.Debug|x64.ActiveCfg = Debug|x64
+		{40311A25-9226-469D-AF0C-07F039E65317}.Debug|x64.Build.0 = Debug|x64
+		{40311A25-9226-469D-AF0C-07F039E65317}.Debug|x86.ActiveCfg = Debug|Win32
+		{40311A25-9226-469D-AF0C-07F039E65317}.Debug|x86.Build.0 = Debug|Win32
+		{40311A25-9226-469D-AF0C-07F039E65317}.Release|x64.ActiveCfg = Release|x64
+		{40311A25-9226-469D-AF0C-07F039E65317}.Release|x64.Build.0 = Release|x64
+		{40311A25-9226-469D-AF0C-07F039E65317}.Release|x86.ActiveCfg = Release|Win32
+		{40311A25-9226-469D-AF0C-07F039E65317}.Release|x86.Build.0 = Release|Win32
+		{82881566-39EE-4FF3-9937-180F121BBCEB}.Debug|x64.ActiveCfg = Debug|x64
+		{82881566-39EE-4FF3-9937-180F121BBCEB}.Debug|x64.Build.0 = Debug|x64
+		{82881566-39EE-4FF3-9937-180F121BBCEB}.Debug|x86.ActiveCfg = Debug|Win32
+		{82881566-39EE-4FF3-9937-180F121BBCEB}.Debug|x86.Build.0 = Debug|Win32
+		{82881566-39EE-4FF3-9937-180F121BBCEB}.Release|x64.ActiveCfg = Release|x64
+		{82881566-39EE-4FF3-9937-180F121BBCEB}.Release|x64.Build.0 = Release|x64
+		{82881566-39EE-4FF3-9937-180F121BBCEB}.Release|x86.ActiveCfg = Release|Win32
+		{82881566-39EE-4FF3-9937-180F121BBCEB}.Release|x86.Build.0 = Release|Win32
+		{0BF9ABE0-0E00-43F3-AACC-DF02F64EE38E}.Debug|x64.ActiveCfg = Debug|x64
+		{0BF9ABE0-0E00-43F3-AACC-DF02F64EE38E}.Debug|x64.Build.0 = Debug|x64
+		{0BF9ABE0-0E00-43F3-AACC-DF02F64EE38E}.Debug|x86.ActiveCfg = Debug|Win32
+		{0BF9ABE0-0E00-43F3-AACC-DF02F64EE38E}.Debug|x86.Build.0 = Debug|Win32
+		{0BF9ABE0-0E00-43F3-AACC-DF02F64EE38E}.Release|x64.ActiveCfg = Release|x64
+		{0BF9ABE0-0E00-43F3-AACC-DF02F64EE38E}.Release|x64.Build.0 = Release|x64
+		{0BF9ABE0-0E00-43F3-AACC-DF02F64EE38E}.Release|x86.ActiveCfg = Release|Win32
+		{0BF9ABE0-0E00-43F3-AACC-DF02F64EE38E}.Release|x86.Build.0 = Release|Win32
+		{860F0ED6-F30C-4765-8301-E04B30097654}.Debug|x64.ActiveCfg = Debug|x64
+		{860F0ED6-F30C-4765-8301-E04B30097654}.Debug|x64.Build.0 = Debug|x64
+		{860F0ED6-F30C-4765-8301-E04B30097654}.Debug|x86.ActiveCfg = Debug|Win32
+		{860F0ED6-F30C-4765-8301-E04B30097654}.Debug|x86.Build.0 = Debug|Win32
+		{860F0ED6-F30C-4765-8301-E04B30097654}.Release|x64.ActiveCfg = Release|x64
+		{860F0ED6-F30C-4765-8301-E04B30097654}.Release|x64.Build.0 = Release|x64
+		{860F0ED6-F30C-4765-8301-E04B30097654}.Release|x86.ActiveCfg = Release|Win32
+		{860F0ED6-F30C-4765-8301-E04B30097654}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2581D667-F984-4A5A-AA25-872E84916D7D}
+	EndGlobalSection
+EndGlobal
