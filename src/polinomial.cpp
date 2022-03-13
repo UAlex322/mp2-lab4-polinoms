@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-// приведение подобных слагаемых в многочлене с упор¤доченными слагаемыми
+// приведение подобных слагаемых в многочлене с упорядоченными слагаемыми
 void Polinomial::reduction(List<Monomial> &list) {
 	auto prev_it = list.before_begin(), curr_it = list.begin(), next_it = (curr_it == list.end()) ? list.end() : std::next(list.begin());
 
@@ -30,14 +30,14 @@ void Polinomial::reduction(List<Monomial> &list) {
 
 // парсинг строки с многочленом
 void Polinomial::parse(const std::string &s) {
-	enum states {Number, Variable, Power, Sum, Mult}; // состо¤ни¤: число, переменна¤, знак степени, знак суммы/разности, знак умножени¤
+	enum states {Number, Variable, Power, Sum, Mult}; // состояния: число, переменная, знак степени, знак суммы/разности, знак умножения
 	states last_state = Sum;
 
-	size_t first_digit_pos = -1; // позици¤ начала текущего считываемого числа
+	size_t first_digit_pos = -1; // позиция начала текущего считываемого числа
 	double sign_value = 1.0; // множитель, обозначающий знак перед мономом
 	bool was_dot = false; // была ли считана точка текущего числа
 
-	char curr_variable = ' '; // текуща¤ переменна¤, к которой будет относитьс¤ степень
+	char curr_variable = ' '; // текущая переменная, к которой будет относиться степень
 	double curr_coefficient; // коэффициент перед текущим мономом
 	int curr_powers[3]{}; // степени текущего монома
 
@@ -70,7 +70,7 @@ void Polinomial::parse(const std::string &s) {
 
 				break;
 			case Number:
-				// ¬стретилс¤ разделитель
+				// встретился разделитель
 				if (s[i] == ' ' || s[i] == '\t' || s[i] == '*' || s[i] == '+' || s[i] == '-') {
 					if (first_digit_pos != -1) {
 						curr_coefficient = sign_value * std::stod(s.substr(first_digit_pos, i-first_digit_pos));
@@ -312,7 +312,7 @@ std::ostream& operator<<(std::ostream &ost, const Polinomial &pol) {
 	if (pol.list.empty()) ost << 0;
 	else {
 		for (auto &mon : pol.list) {
-			// ƒалее в некоторых местах делаютс¤ проверки, что коэффициент одночлена - 1 или -1; если это так, число не выводитс¤
+			// далее в некоторых местах делаются проверки, что коэффициент одночлена - 1 или -1; если это так, число не выводится
 			if (count == 0) {
 				if (mon.power == 0 || mon.power != 0 && std::abs(abs(mon.value)-1.0)>epsilon)
 					ost << mon.value;
